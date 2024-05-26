@@ -9,19 +9,23 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+// UserService class
 @Service
 public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    // Get all users
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
+    // Get user by userId
     public User getUserById(String userId) {
         return userRepository.findById(userId).orElse(null);
     }
 
+    // Get address list by userId
     public List<Address> getAddressListByUserId(String userId) {
         User user = getUserById(userId);
         if (user != null) {
@@ -30,6 +34,8 @@ public class UserService {
         return null;
     }
 
+    // Add user
+    // Setting addressList as empty list because based on react code we are not sending addressList
     public String addUser(User user) {
         User newUser = new User();
         newUser.setUserName(user.getUserName());
@@ -40,6 +46,8 @@ public class UserService {
         return "User added successfully";
     }
 
+    // Update user address list
+    // Setting addressList to user object and saving it => based on react code
     public String updateUserAddressList(String userId, List<Address> addressList) {
         User user = getUserById(userId);
         if (user != null) {
@@ -51,10 +59,7 @@ public class UserService {
         }
     }
 
-    public int getUsersCount() {
-        return userRepository.findUsersCount();
-    }
-
+    // Delete specific address from address list by userId and addressId
     public String deleteAddressByUserId(String userId, String addressId) {
         User user = userRepository.findById(userId).orElse(null);
         if (user != null) {
@@ -70,5 +75,10 @@ public class UserService {
         } else {
             return "User id not found";
         }
+    }
+
+    // Get users count
+    public int getUsersCount() {
+        return userRepository.findUsersCount();
     }
 }

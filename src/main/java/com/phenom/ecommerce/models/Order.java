@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+// Order model class
+// holds the cart items, total cart quantity, total cart price and shipping information
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

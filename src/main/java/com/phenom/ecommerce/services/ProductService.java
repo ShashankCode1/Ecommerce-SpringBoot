@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 
+// Product service class
 @Service
 public class ProductService {
     @Autowired
@@ -69,6 +70,7 @@ public class ProductService {
         }
     }
 
+    // Get products count
     public int getProductsCount() {
         return productRepository.findProductsCount();
     }

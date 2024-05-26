@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+// User model class holds user details with addressList
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

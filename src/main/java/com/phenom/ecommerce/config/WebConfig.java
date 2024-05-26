@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.*;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
+    // Injecting image directory path from application.properties
     @Value("${images.path}")
     private String imageDirectoryPath;
 

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// Order Controller
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
@@ -23,9 +24,13 @@ public class OrderController {
         return orderService.getOrders();
     }
 
+    @DeleteMapping("/{orderId}")
+    public String deleteOrderById(@PathVariable String orderId) {
+        return orderService.deleteOrderById(orderId);
+    }
+
     @GetMapping("/count")
     public int getOrdersCount() {
         return orderService.getOrdersCount();
     }
-
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// User controller class
 @RequestMapping("/users")
 @RestController
 public class UserController {
@@ -39,14 +40,13 @@ public class UserController {
         return userService.updateUserAddressList(userId, addressList);
     }
 
-    @GetMapping("/count")
-    public int getUsersCount() {
-        return userService.getUsersCount();
-    }
-
     @DeleteMapping("/{userId}/{addressId}")
     public String deleteAddressByUserId(@PathVariable String userId, @PathVariable String addressId) {
         return userService.deleteAddressByUserId(userId, addressId);
     }
 
+    @GetMapping("/count")
+    public int getUsersCount() {
+        return userService.getUsersCount();
+    }
 }
